@@ -5,11 +5,28 @@
  */
 package newpackage;
 
+import pe.edu.iberotec.NewJFrame;
+
+
+
+
 /**
  *
  * @author jerson
  */
 public class Ejemplo {
     
+       public static void main(String[] args) {
+      NewJFrame yaou = new NewJFrame ();
+      
+      yaou.setVisible(true);
+    }
+   
+      
+      
+     
+              
 }
+    
+
 
