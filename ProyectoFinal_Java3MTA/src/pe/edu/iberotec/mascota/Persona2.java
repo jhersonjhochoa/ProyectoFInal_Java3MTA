@@ -5,47 +5,43 @@
  */
 package pe.edu.iberotec.mascota;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  *
  * @author jerson
  */
-public class Persona2 {
-    private Cliente nombre;
-    private Cliente apellidos;
-    private Cliente direccion;
-    private Cliente telefono;
-
-    public Cliente getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(Cliente nombre) {
-        this.nombre = nombre;
-    }
-
-    public Cliente getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(Cliente apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public Cliente getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(Cliente direccion) {
-        this.direccion = direccion;
-    }
-
-    public Cliente getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(Cliente telefono) {
-        this.telefono = telefono;
+public class Persona2 implements Serializable{
+    
+        public static void SaveData(ArrayList<Persona> listProducto) {
+        try {
+            FileOutputStream file = new FileOutputStream("Persona.ser");
+            ObjectOutputStream stream = new ObjectOutputStream(file);
+            stream.writeObject(listProducto);
+            stream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
-    
+    public static ArrayList<Persona> LoadData() {
+        ArrayList<Persona> listProducto = null;
+        try {
+            FileInputStream file = new FileInputStream("Persona.ser");
+            ObjectInputStream stream = new ObjectInputStream(file);
+            listProducto = (ArrayList<Persona>) stream.readObject();
+            stream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            listProducto = null;
+        }        
+        return (listProducto!=null)? listProducto : 
+                                new ArrayList<Persona>();             
+    }   
 }

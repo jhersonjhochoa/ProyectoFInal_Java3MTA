@@ -18,6 +18,16 @@ public class Mascota {
     private String edad;
     private String pezo;
     private String sexo;
+    private int id;
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public String getNombreCli() {
         return nombreCli;
@@ -82,7 +92,9 @@ public class Mascota {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
-    
-    
 }
+   
+    
+    
+    
+

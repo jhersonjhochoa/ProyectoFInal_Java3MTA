@@ -12,14 +12,6 @@ import java.util.ArrayList;
  * @author jerson
  */
 public class Cliente {
-
-    public static ArrayList<Cliente> LoadData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static void LoadData(ArrayList<Cliente> listado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     public String nombre;
     public String apellidos;
     public String direccion;
@@ -55,8 +47,13 @@ public class Cliente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }      
+
+    public void setId(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

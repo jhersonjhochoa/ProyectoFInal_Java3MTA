@@ -6,13 +6,17 @@
 package pe.edu.iberotec;
 
 import java.beans.PersistenceDelegate;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import pe.edu.iberotec.mascota.Cliente;
+import pe.edu.iberotec.mascota.Cliente1;
 
 /**
  *
  * @author jerson
  */
 public class ConsultarCliente extends javax.swing.JInternalFrame {
-
+    
     /**
      * Creates new form ConsultarCliente
      */
@@ -40,6 +44,12 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         setTitle("Consultar Cliente");
 
         jLabel1.setText("Code Cliente");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +114,31 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+    ArrayList<Cliente> listado = Cliente1.LoadData();
+        String b = txtBuscar.getText();
+            try{
+                int b2 = Integer.parseInt(b);
+                String x = "";
+                for(Cliente cli : listado){
+                    int n = cli.getId();
+                        if(n == b2){
+                                x = x + cli.getId()+ "" + cli.getNombre() + "" + cli.getApellidos();
+                                
+                        }
+                        JOptionPane.showMessageDialog(this,x);
+                }
+            }catch(NumberFormatException e){
+                
+            
+            JOptionPane.showMessageDialog(this, "solo numeros enteros");
+            }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
