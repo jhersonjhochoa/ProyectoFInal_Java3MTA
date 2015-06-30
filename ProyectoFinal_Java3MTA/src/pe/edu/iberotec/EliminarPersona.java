@@ -7,7 +7,7 @@ package pe.edu.iberotec;
 
 /**
  *
- * @author yefers
+ * @author jerson
  */
 public class EliminarPersona extends javax.swing.JInternalFrame {
 

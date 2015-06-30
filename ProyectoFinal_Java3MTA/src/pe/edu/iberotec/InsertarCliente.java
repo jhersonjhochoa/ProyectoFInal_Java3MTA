@@ -235,7 +235,7 @@ public class InsertarCliente extends javax.swing.JInternalFrame {
         cli.setTelefono(txtTelefono.getText());
         //cli.setId(Integer.parseInt(txtid.getText()));
         listado.add(cli);
-        Cliente1.SaveData(listado);
+        //Cliente1.SaveData(listado);
        
         LlenarTable();
     }//GEN-LAST:event_btnInsertarClienteActionPerformed

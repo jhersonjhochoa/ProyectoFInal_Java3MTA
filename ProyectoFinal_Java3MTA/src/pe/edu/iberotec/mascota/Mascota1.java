@@ -43,4 +43,9 @@ public class Mascota1 implements Serializable{
         return (listProducto!=null)? listProducto : 
                                 new ArrayList<Mascota>();             
     }
+
+    public static void LoadData(ArrayList<Mascota> listado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

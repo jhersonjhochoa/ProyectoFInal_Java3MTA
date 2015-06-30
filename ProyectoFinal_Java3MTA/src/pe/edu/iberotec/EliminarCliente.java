@@ -7,7 +7,7 @@ package pe.edu.iberotec;
 
 /**
  *
- * @author yefers
+ * @author jerson
  */
 public class EliminarCliente extends javax.swing.JInternalFrame {
 

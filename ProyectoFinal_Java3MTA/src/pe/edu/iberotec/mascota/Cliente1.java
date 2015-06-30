@@ -19,11 +19,11 @@ import java.util.ArrayList;
  */
 public class Cliente1 implements Serializable {
     
-    public static void SaveData(ArrayList<Cliente1> listProducto) {
+    public static void SaveData(ArrayList<Cliente1> listadoProducto) {
         try {
             FileOutputStream file = new FileOutputStream("Cliente.ser");
             ObjectOutputStream stream = new ObjectOutputStream(file);
-            stream.writeObject(listProducto);
+            stream.writeObject(listadoProducto);
             stream.close();
         } catch (IOException e) {
             e.printStackTrace();
