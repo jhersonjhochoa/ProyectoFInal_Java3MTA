@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package pe.edu.iberotec;
-
 /**
  *
  * @author jerson
  */
 public class HistorialMedico extends javax.swing.JInternalFrame {
-
     /**
      * Creates new form InsertarHistorialMedico
      */
     public HistorialMedico() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,8 +41,6 @@ public class HistorialMedico extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

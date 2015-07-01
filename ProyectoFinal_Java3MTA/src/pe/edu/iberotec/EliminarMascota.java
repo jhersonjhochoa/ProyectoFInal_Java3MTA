@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package pe.edu.iberotec;
-
 /**
  *
  * @author jerson
  */
 public class EliminarMascota extends javax.swing.JInternalFrame {
-
     /**
      * Creates new form EliminarMascota
      */
     public EliminarMascota() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,8 +82,6 @@ public class EliminarMascota extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaEliAnimal;
     private javax.swing.JLabel jLabel1;

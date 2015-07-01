@@ -8,20 +8,17 @@ package pe.edu.iberotec;
 
 import java.util.ArrayList;
 import pe.edu.iberotec.mascota.Persona;
-
 /**
  *
  * @author jerson
  */
 public class InsertarPersona extends javax.swing.JInternalFrame {
-
     /**
      * Creates new form InsertarPersona
      */
     public InsertarPersona() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,11 +129,8 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
         // TODO add your handling code here
         Persona per = new Persona();
         ArrayList<Persona> listado = Persona.LoadData();
-        //per.setNombret(txtnom.getText());
-        
+        //per.setNombret(txtnom.getText());      
     }//GEN-LAST:event_btninserActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btninser;
     private javax.swing.JLabel jLabel1;

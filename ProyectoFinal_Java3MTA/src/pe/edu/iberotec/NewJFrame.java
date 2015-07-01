@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class NewJFrame extends javax.swing.JFrame {
     
-    private Object principal;
+    private Object Principal;
 
     /**
      * Creates new form NewJFrame
@@ -32,26 +32,20 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jcMousePanelBeanInfo1 = new jcMousePanel.jcMousePanelBeanInfo();
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        password = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblContraseña = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        Password = new javax.swing.JPasswordField();
+        btnACEPTAR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1.jpg"))); // NOI18N
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 102));
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Folder Black User (1).png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -60,33 +54,46 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        password.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        password.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                passwordKeyPressed(evt);
-            }
-        });
-
-        jLabel1.setBackground(new java.awt.Color(0, 204, 51));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 0, 255));
-        jLabel1.setText("CLAVE");
-
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel2.setText("VETERINARIA");
+
+        lblUsuario.setText("USUARIO");
+
+        lblContraseña.setText("CONTRASEÑA");
+
+        btnACEPTAR.setText("ACEPTAR");
+        btnACEPTAR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnACEPTARMouseClicked(evt);
+            }
+        });
+        btnACEPTAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnACEPTARActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jcMousePanel1Layout = new javax.swing.GroupLayout(jcMousePanel1);
         jcMousePanel1.setLayout(jcMousePanel1Layout);
         jcMousePanel1Layout.setHorizontalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel2)
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel2))
+                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUsuario)
+                            .addComponent(lblContraseña))
+                        .addGap(39, 39, 39)
+                        .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsuario)
+                            .addComponent(Password, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
+                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(btnACEPTAR)))
                 .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jcMousePanel1Layout.createSequentialGroup()
@@ -97,38 +104,29 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGroup(jcMousePanel1Layout.createSequentialGroup()
                             .addGap(377, 377, 377)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                    .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                            .addGap(137, 137, 137)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                            .addGap(111, 111, 111)
-                            .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                                    .addGap(66, 66, 66)
-                                    .addComponent(jLabel1)))))
-                    .addGap(0, 187, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel2)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuario)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblContraseña)
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(btnACEPTAR)
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jcMousePanel1Layout.createSequentialGroup()
                     .addGap(83, 83, 83)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(14, 14, 14)
-                    .addComponent(jLabel1)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jButton1)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(123, 123, 123)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(37, Short.MAX_VALUE)))
         );
@@ -147,39 +145,40 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        if(password.getText().equals("veterinaria")){
-            dispose();
-            principal.equals(null);
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Could not open file", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.exit(0);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
+    private void btnACEPTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnACEPTARActionPerformed
+    String Usuario="admin";
+String Contraseña = "123";
+String Pass=new String(Password.getPassword());
+if(txtUsuario.getText().equals(Usuario)&&Pass.equals(Contraseña)){
 
-    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
-        // TODO add your handling code here:
-        // ENTER DE CLAVE
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(password.getText().equals("veterinaria")){
-                dispose();
-                principal.equals(null);
-                
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Could not open file", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_passwordKeyPressed
+Principal P=new Principal();
+P.setVisible(true);
+dispose();
+}
+else{
+JOptionPane.showMessageDialog(this,"Usuario / contraseña incorrecta");
+}
+    }//GEN-LAST:event_btnACEPTARActionPerformed
+
+    private void btnACEPTARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnACEPTARMouseClicked
+      /*String Usuario="admin";
+String Contraseña = "123";
+String Pass=new String(Password.getPassword());
+if(txtUsuario.getText().equals(Usuario)&&Pass.equals(Contraseña)){
+
+Principal P=new Principal();
+P.setVisible(true);
+dispose();
+}
+else{
+JOptionPane.showMessageDialog(this,"Usuario / contraseña incorrecta");
+}*/
+    }//GEN-LAST:event_btnACEPTARMouseClicked
 
     /**
      * @param args the command line arguments
@@ -219,12 +218,15 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JButton btnACEPTAR;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
-    private javax.swing.JPasswordField password;
+    private jcMousePanel.jcMousePanelBeanInfo jcMousePanelBeanInfo1;
+    private javax.swing.JLabel lblContraseña;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

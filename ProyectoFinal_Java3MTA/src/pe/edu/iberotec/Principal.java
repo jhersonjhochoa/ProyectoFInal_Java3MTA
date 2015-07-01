@@ -6,16 +6,11 @@
 package pe.edu.iberotec;
 
 import pe.edu.iberotec.ConsultarCliente;
-
-
-
 /**
  *
  * @author jerson
  */
 public class Principal extends javax.swing.JFrame {
-    
-
     /**
      * Creates new form Principal
      */
@@ -23,7 +18,6 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -239,28 +233,24 @@ public class Principal extends javax.swing.JFrame {
         escritorio.add(obj);
    
     }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         EliminarCliente eli = new EliminarCliente();
         eli.setVisible(true);
         escritorio.add(eli);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
         ConsultarCliente con = new ConsultarCliente();
         con.setVisible(true);
         escritorio.add(con);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         InsertarPersona inper = new InsertarPersona();
         inper.setVisible(true);
         escritorio.add(inper);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         EliminarPersona eliper = new EliminarPersona();
@@ -280,58 +270,49 @@ public class Principal extends javax.swing.JFrame {
         RegistrarMascotas mas = new RegistrarMascotas();
         mas.setVisible(true);
         escritorio.add(mas);
-
     }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         EliminarMascota elimas = new EliminarMascota();
         elimas.setVisible(true);
         escritorio.add(elimas);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
-
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
         ConsultarMascota conmas = new ConsultarMascota();
         conmas.setVisible(true);
         escritorio.add(conmas);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
-
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
         // TODO add your handling code here:
         HistorialMedico inhis = new HistorialMedico();
         inhis.setVisible(true);
         escritorio.add(inhis);
     }//GEN-LAST:event_jMenuItem16ActionPerformed
-
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
         // TODO add your handling code here:
         ConsultarHistorial conhismes = new ConsultarHistorial();
         conhismes.setVisible(true);
         escritorio.add(conhismes);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
-
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
         RegistrarCita reci = new RegistrarCita();
         reci.setVisible(true);
         escritorio.add(reci);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
-
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
         ActualizarCita acci = new ActualizarCita();
         acci.setVisible(true);
         escritorio.add(acci);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
-
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         // TODO add your handling code here:
         ConsultaCitas conci = new ConsultaCitas();
         conci.setVisible(true);
         escritorio.add(conci);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -359,7 +340,6 @@ public class Principal extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -367,7 +347,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;

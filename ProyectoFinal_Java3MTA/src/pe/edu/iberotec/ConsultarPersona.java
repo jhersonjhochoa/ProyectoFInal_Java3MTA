@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package pe.edu.iberotec;
-
 /**
  *
  * @author jerson
  */
 public class ConsultarPersona extends javax.swing.JInternalFrame {
-
     /**
      * Creates new form ConsultarPersona
      */
     public ConsultarPersona() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,8 +83,6 @@ public class ConsultarPersona extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnconsul;
     private javax.swing.JLabel jLabel1;

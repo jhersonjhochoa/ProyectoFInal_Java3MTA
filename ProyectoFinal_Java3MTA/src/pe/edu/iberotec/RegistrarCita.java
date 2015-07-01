@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package pe.edu.iberotec;
-
 /**
  *
  * @author jerson
  */
 public class RegistrarCita extends javax.swing.JInternalFrame {
-
     /**
      * Creates new form RegistrarCita
      */
     public RegistrarCita() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,16 +149,12 @@ public class RegistrarCita extends javax.swing.JInternalFrame {
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInsertarActionPerformed
-
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInsertar;
     private javax.swing.JLabel jLabel1;

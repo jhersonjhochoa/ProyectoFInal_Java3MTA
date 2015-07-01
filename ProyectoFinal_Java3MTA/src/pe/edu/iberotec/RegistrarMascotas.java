@@ -11,19 +11,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.iberotec.mascota.Mascota;
 import pe.edu.iberotec.mascota.Mascota1;
-
 /**
  *
  * @author jerson
  */
-public class RegistrarMascotas extends javax.swing.JInternalFrame {
-   
-
-   
+public class RegistrarMascotas extends javax.swing.JInternalFrame { 
     public RegistrarMascotas() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -251,7 +246,6 @@ public class RegistrarMascotas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         Mascota ani = new Mascota();
@@ -269,16 +263,13 @@ public class RegistrarMascotas extends javax.swing.JInternalFrame {
         Mascota1.LoadData(listado);
         LlenarTable();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         LimpiarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void cbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSexoActionPerformed
-
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
         ArrayList<Mascota> listado = Mascota1.LoadData();
@@ -287,11 +278,16 @@ public class RegistrarMascotas extends javax.swing.JInternalFrame {
                 int b2 = Integer.parseInt(b);
                 String x = "";
                 for(Mascota cli : listado){
-                    int n = cli.getId();
-                        if(n == b2){
-                    x = x +"Id : "+ cli.getId()+ "\n"+ "NombreCli: "+cli.getNombreCli()+"\n" + "DNI: " + cli.getDni()+"\n" + "NomMascota: " + cli.getNombreMas()+"\n" + "Color : " + cli.getColor()
-                         + "\n" + "Raza :" + cli.getRaza()+ "\n" + "Edad" + cli.getEdad()+"\n" + "Pezo" + cli.getPezo() + "\n" + "Sexo" + cli.getSexo();
-                                
+                int n = cli.getId();
+                if(n == b2){
+                x = x +"Id : "+ cli.getId()+ "\n"
+                + "NombreCli: "+cli.getNombreCli()+"\n" 
+                + "DNI: " + cli.getDni()+"\n" + "NomMascota: " 
+                + cli.getNombreMas()+"\n" + "Color : " 
+                + cli.getColor()
+                + "\n" + "Raza :" + cli.getRaza()+ "\n" + "Edad" 
+                + cli.getEdad()+"\n" + "Pezo" + cli.getPezo() 
+                + "\n" + "Sexo" + cli.getSexo();                              
                         }
                         JOptionPane.showMessageDialog(this,x);
                 }
@@ -317,7 +313,6 @@ public void  LimpiarTabla(){
                 a.getColor(), a.getRaza(), a.getEdad(), a.getPezo(), a.getSexo(), a.getId()});
     }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;

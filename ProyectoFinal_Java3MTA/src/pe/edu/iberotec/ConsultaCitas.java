@@ -10,14 +10,12 @@ package pe.edu.iberotec;
  * @author jerson
  */
 public class ConsultaCitas extends javax.swing.JInternalFrame {
-
     /**
      * Creates new form ConsultaCitas
      */
     public ConsultaCitas() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,7 +84,6 @@ public class ConsultaCitas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pe.edu.iberotec.mascota.Cliente;
 import pe.edu.iberotec.mascota.Cliente1;
-
 /**
  *
  * @author jerson
@@ -23,8 +22,7 @@ public class InsertarCliente extends javax.swing.JInternalFrame {
      */
     public InsertarCliente() {
         initComponents();
-        LlenarTable();
-        
+        LlenarTable();     
     }
 
     /**
@@ -270,7 +268,11 @@ public class InsertarCliente extends javax.swing.JInternalFrame {
                 for(Cliente cli : listado){
                     int n = cli.getId();
                         if(n == b2){
-                                x = x +"Id : "+ cli.getId()+ "\n"+ "Nombre : " + cli.getNombre() +"\n" + "Apellido: " + cli.getApellidos()+"\n" + "Direccion: " + cli.getDireccion() +"\n" + "Telefono : " + cli.getTelefono();
+                                x = x +"Id : "+ cli.getId()+ "\n"+ "Nombre :"
+                                + " " + cli.getNombre() +"\n" + "Apellido: " 
+                                + cli.getApellidos()+"\n" + "Direccion: " 
+                                + cli.getDireccion() +"\n" + "Telefono : "
+                                + cli.getTelefono();
                                 
                         }
                         JOptionPane.showMessageDialog(this,x);

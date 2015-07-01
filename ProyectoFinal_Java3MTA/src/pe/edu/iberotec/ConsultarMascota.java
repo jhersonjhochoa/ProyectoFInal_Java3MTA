@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package pe.edu.iberotec;
-
 /**
  *
  * @author jerson
  */
 public class ConsultarMascota extends javax.swing.JInternalFrame {
-
     /**
      * Creates new form ConsultarMascota
      */
     public ConsultarMascota() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -98,12 +95,9 @@ public class ConsultarMascota extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
     private javax.swing.JScrollPane jScrollPane1;
