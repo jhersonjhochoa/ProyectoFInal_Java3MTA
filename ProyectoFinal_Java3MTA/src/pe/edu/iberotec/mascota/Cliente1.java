@@ -17,11 +17,11 @@ import java.util.ArrayList;
  *
  * @author jerson
  */
-public class Cliente1 implements Serializable {
+public class Cliente1 {
     
     public static void SaveData(ArrayList<Cliente1> listadoProducto) {
         try {
-            FileOutputStream file = new FileOutputStream("Cliente.ser");
+            FileOutputStream file = new FileOutputStream("Cliente1.ser");
             ObjectOutputStream stream = new ObjectOutputStream(file);
             stream.writeObject(listadoProducto);
             stream.close();
@@ -33,7 +33,7 @@ public class Cliente1 implements Serializable {
     public static ArrayList<Cliente> LoadData() {
         ArrayList<Cliente> listProducto = null;
         try {
-            FileInputStream file = new FileInputStream("Cliente.ser");
+            FileInputStream file = new FileInputStream("Cliente1.ser");
             ObjectInputStream stream = new ObjectInputStream(file);
             listProducto = (ArrayList<Cliente>) stream.readObject();
             stream.close();
@@ -44,6 +44,7 @@ public class Cliente1 implements Serializable {
         return (listProducto!=null)? listProducto : 
                                 new ArrayList<Cliente>();             
     }
+
 
      }
 

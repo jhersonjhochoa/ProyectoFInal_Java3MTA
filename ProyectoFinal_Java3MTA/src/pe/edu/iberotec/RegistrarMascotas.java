@@ -256,11 +256,12 @@ public class RegistrarMascotas extends javax.swing.JInternalFrame {
         ani.setColor(txtcolor.getText());
         ani.setRaza(txtraza.getText());
         ani.setEdad(txtedad.getText());
-        /*ani.setPezo(Double.parseDouble(txtpeso.getText()));*/
+        ani.setPezo(Double.parseDouble(txtpeso.getText()));
         ani.setSexo((String)cbSexo.getSelectedItem());
         ani.setId(Integer.parseInt(txtid.getText()));
         listado.add(ani);
-        Mascota1.LoadData(listado);
+        ArrayList<Mascota1> listado1;
+        
         LlenarTable();
     }//GEN-LAST:event_btnGuardarActionPerformed
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

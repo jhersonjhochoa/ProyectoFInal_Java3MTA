@@ -226,14 +226,15 @@ public class InsertarCliente extends javax.swing.JInternalFrame {
     private void btnInsertarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarClienteActionPerformed
         Cliente cli = new Cliente();
         ArrayList<Cliente> listado =  Cliente1.LoadData();
-        cli.setId(Integer.parseInt(txtid.getText()));
         cli.setNombre(txtNombre.getText());
         cli.setApellidos(txtApellido.getText());
         cli.setDireccion(txtDireccion.getText());
         cli.setTelefono(txtTelefono.getText());
-        //cli.setId(Integer.parseInt(txtid.getText()));
+        cli.setId(Integer.parseInt(txtid.getText()));
         listado.add(cli);
-        //Cliente1.SaveData(listado);
+        ArrayList<Cliente1> listado1;
+     
+        
        
         LlenarTable();
     }//GEN-LAST:event_btnInsertarClienteActionPerformed

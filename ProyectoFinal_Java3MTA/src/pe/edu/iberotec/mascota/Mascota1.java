@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author jerson
  */
-public class Mascota1 implements Serializable{
+public class Mascota1{
     public static void SaveData(ArrayList<Mascota1> listProducto) {
         try {
             FileOutputStream file = new FileOutputStream("Mascota.ser");
@@ -42,10 +42,6 @@ public class Mascota1 implements Serializable{
         }        
         return (listProducto!=null)? listProducto : 
                                 new ArrayList<Mascota>();             
-    }
-
-    public static void LoadData(ArrayList<Mascota> listado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

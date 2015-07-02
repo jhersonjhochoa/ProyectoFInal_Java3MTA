@@ -151,8 +151,8 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnACEPTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnACEPTARActionPerformed
-    String Usuario="admin";
-String Contraseña = "123";
+    String Usuario="veterinaria";
+String Contraseña = "123456789";
 String Pass=new String(Password.getPassword());
 if(txtUsuario.getText().equals(Usuario)&&Pass.equals(Contraseña)){
 

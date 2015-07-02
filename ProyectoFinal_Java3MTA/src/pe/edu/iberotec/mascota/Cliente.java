@@ -5,13 +5,13 @@
  */
 package pe.edu.iberotec.mascota;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  *
  * @author jerson
  */
-public class Cliente {
+public class Cliente implements Serializable{
     public String nombre;
     public String apellidos;
     public String direccion;
