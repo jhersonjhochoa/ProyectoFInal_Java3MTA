@@ -230,7 +230,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        InsertarCliente  obj = new InsertarCliente();
+        FrmCliente  obj = new FrmCliente();
         obj.setVisible(true);
         escritorio.add(obj);
    
