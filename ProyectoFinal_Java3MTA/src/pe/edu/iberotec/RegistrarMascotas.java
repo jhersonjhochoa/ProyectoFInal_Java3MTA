@@ -9,8 +9,8 @@ package pe.edu.iberotec;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import pe.edu.iberotec.mascota.Mascota;
-import pe.edu.iberotec.mascota.Mascota1;
+import pe.edu.iberotec.models.Mascota;
+import pe.edu.iberotec.models.Mascota1;
 /**
  *
  * @author jerson

@@ -7,9 +7,9 @@ package pe.edu.iberotec;
 
 
 import java.util.ArrayList;
-import pe.edu.iberotec.mascota.Citas;
-import pe.edu.iberotec.mascota.Cliente;
-import pe.edu.iberotec.mascota.Cliente1;
+import pe.edu.iberotec.models.Citas;
+import pe.edu.iberotec.models.Cliente;
+import pe.edu.iberotec.models.PersistenciaCliente;
 
 /**
  *
@@ -149,7 +149,7 @@ public class ActualizarCita extends javax.swing.JInternalFrame {
 
     private void btnactuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactuActionPerformed
          Citas   ci  = new  Citas ();
-          ArrayList<Cliente> listado =  Cliente1.LoadData();
+          ArrayList<Cliente> listado =  PersistenciaCliente.LoadData();
           ci.setNombre(txtNom.getText());
           ci.setApelllido(txtApe.getText());
           ci.setCorreo(txtCorr.getText());

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pe.edu.iberotec.mascota;
+package pe.edu.iberotec.models;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,10 +17,11 @@ import java.util.ArrayList;
  *
  * @author jerson
  */
-public class Mascota1{
-    public static void SaveData(ArrayList<Mascota1> listProducto) {
+public class Persona2 implements Serializable{
+    
+        public static void SaveData(ArrayList<Persona> listProducto) {
         try {
-            FileOutputStream file = new FileOutputStream("Mascota.ser");
+            FileOutputStream file = new FileOutputStream("Persona.ser");
             ObjectOutputStream stream = new ObjectOutputStream(file);
             stream.writeObject(listProducto);
             stream.close();
@@ -29,19 +30,18 @@ public class Mascota1{
         }
     }
     
-    public static ArrayList<Mascota> LoadData() {
-        ArrayList<Mascota> listProducto = null;
+    public static ArrayList<Persona> LoadData() {
+        ArrayList<Persona> listProducto = null;
         try {
-            FileInputStream file = new FileInputStream("Mascota.ser");
+            FileInputStream file = new FileInputStream("Persona.ser");
             ObjectInputStream stream = new ObjectInputStream(file);
-            listProducto = (ArrayList<Mascota>) stream.readObject();
+            listProducto = (ArrayList<Persona>) stream.readObject();
             stream.close();
         } catch (Exception e) {
             e.printStackTrace();
             listProducto = null;
         }        
         return (listProducto!=null)? listProducto : 
-                                new ArrayList<Mascota>();             
-    }
-
+                                new ArrayList<Persona>();             
+    }   
 }

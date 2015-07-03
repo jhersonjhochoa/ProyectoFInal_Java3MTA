@@ -7,7 +7,7 @@ package pe.edu.iberotec;
 
 
 import java.util.ArrayList;
-import pe.edu.iberotec.mascota.Persona;
+import pe.edu.iberotec.models.Persona;
 /**
  *
  * @author jerson

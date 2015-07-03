@@ -151,18 +151,16 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnACEPTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnACEPTARActionPerformed
-    String Usuario="veterinaria";
-String Contraseña = "123456789";
-String Pass=new String(Password.getPassword());
-if(txtUsuario.getText().equals(Usuario)&&Pass.equals(Contraseña)){
-
-Principal P=new Principal();
-P.setVisible(true);
-dispose();
-}
-else{
-JOptionPane.showMessageDialog(this,"Usuario / contraseña incorrecta");
-}
+        String Usuario="veterinaria";
+        String Contraseña = "123456789";
+        String Pass=new String(Password.getPassword());
+        if(txtUsuario.getText().equals(Usuario)&&Pass.equals(Contraseña)){
+            Principal P=new Principal();
+            P.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(this,"Usuario / contraseña incorrecta");
+        }
     }//GEN-LAST:event_btnACEPTARActionPerformed
 
     private void btnACEPTARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnACEPTARMouseClicked
