@@ -21,9 +21,11 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
     /**
      * Creates new form InsertarPersona
      */
-    ArrayList<Cliente> listado =  PersistenciaCliente.LoadData();
+    ArrayList<Cliente> listado;
     public InsertarPersona() {
         initComponents();
+        cbClientes.removeAllItems();
+        cbClientes.addItem("Seleccione");
         listado =  PersistenciaCliente.LoadData();
         for(Cliente x: listado){
             String m = (x.getId() + ": " + x.getNombre() + " " + x .getApellido());
@@ -267,7 +269,7 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void cbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbClientesActionPerformed
-        
+        listado =  PersistenciaCliente.LoadData();        
         if(!"Seleccione".equals((String) cbClientes.getSelectedItem())){
             int num = cbClientes.getSelectedIndex();
             System.out.println("" + num);
@@ -288,6 +290,7 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
             txtDNI.setEditable(false);
             txtEdad.setEditable(false);
         }
+        
     }//GEN-LAST:event_cbClientesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

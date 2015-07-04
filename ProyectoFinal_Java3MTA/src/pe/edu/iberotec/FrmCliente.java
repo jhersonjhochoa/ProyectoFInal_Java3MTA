@@ -9,8 +9,7 @@ package pe.edu.iberotec;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import pe.edu.iberotec.models.Cliente;
-import pe.edu.iberotec.models.PersistenciaCliente;
+import pe.edu.iberotec.models.*;
 /**
  *
  * @author jerson
@@ -20,12 +19,20 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form IsertarCliente
      */
+    ArrayList<Cliente> listado;
+    int cont = 0;
+    Cliente ultimo;
     public FrmCliente() {
         initComponents();
         lblErrorTelefono.setText("");
         try{
             rellenarTabla();
-        }catch(Exception e){}    
+        }catch(Exception e){}
+        listado =  PersistenciaCliente.LoadData();
+        cont = listado.size() - 1;
+        ultimo = listado.get(cont);
+        cont = ultimo.getId() + 1;
+        txtid.setText("" + cont);
     }
 
     /**
@@ -120,6 +127,8 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel6.setText("ID:");
+
+        txtid.setEditable(false);
 
         btnBuscar.setText("Buscar ID");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -223,7 +232,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInsertarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarClienteActionPerformed
-        ArrayList<Cliente> listado =  PersistenciaCliente.LoadData();
+        listado =  PersistenciaCliente.LoadData();
         lblErrorTelefono.setText("");
         Cliente cli = new Cliente();
         cli.setNombre(txtNombre.getText());
@@ -232,18 +241,25 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         
         try{
             cli.setTelefono(Integer.parseInt(txtTelefono.getText()));
+            cli.setId(Integer.parseInt(txtid.getText()));
+            cont++; 
+            listado.add(cli);
+            PersistenciaCliente.SaveData(listado);
+            rellenarTabla();
+            txtNombre.setText("");
+            txtApellido.setText("");
+            txtDireccion.setText("");
+            txtTelefono.setText("");
+            txtid.setText("" + cont);
+            
         }catch(NumberFormatException e){
             lblErrorTelefono.setText("Formato de número inválido");
         }
         
-        cli.setId(Integer.parseInt(txtid.getText()));
-        listado.add(cli);
-        PersistenciaCliente.SaveData(listado);
-        rellenarTabla();
     }//GEN-LAST:event_btnInsertarClienteActionPerformed
 
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
-        ArrayList<Cliente> listado =  PersistenciaCliente.LoadData();
+        listado =  PersistenciaCliente.LoadData();
         DefaultTableModel df =  ((DefaultTableModel)TablaCliente.getModel()) ;
         int[] eliminarDatos = TablaCliente.getSelectedRows();
         
