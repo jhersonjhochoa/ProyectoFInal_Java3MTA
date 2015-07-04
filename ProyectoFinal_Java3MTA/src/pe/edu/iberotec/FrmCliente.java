@@ -54,7 +54,6 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         txtid = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
-        btnVerPersona = new javax.swing.JButton();
         lblErrorTelefono = new javax.swing.JLabel();
 
         setClosable(true);
@@ -68,7 +67,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -122,14 +121,12 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
         jLabel6.setText("ID:");
 
-        btnBuscar.setText("Buscar");
+        btnBuscar.setText("Buscar ID");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
-
-        btnVerPersona.setText("VER PERFIL PERSONA");
 
         lblErrorTelefono.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         lblErrorTelefono.setForeground(new java.awt.Color(153, 0, 0));
@@ -149,9 +146,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnBuscar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
-                                .addComponent(btnVerPersona)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnEliminarCliente)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
@@ -167,7 +162,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(30, 30, 30)
-                                        .addComponent(lblErrorTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(lblErrorTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -220,8 +215,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminarCliente)
-                    .addComponent(btnVerPersona))
+                    .addComponent(btnEliminarCliente))
                 .addContainerGap())
         );
 
@@ -283,18 +277,22 @@ public class FrmCliente extends javax.swing.JInternalFrame {
             try{
                 int b2 = Integer.parseInt(b);
                 String x = "";
-                for(Cliente cli : listado){
-                    int n = cli.getId();
-                        if(n == b2){
-                                x = x +"Id : "+ cli.getId()+ "\n"+ "Nombre :"
-                                + " " + cli.getNombre() +"\n" + "Apellido: " 
-                                + cli.getApellido()+"\n" + "Direccion: " 
-                                + cli.getDireccion() +"\n" + "Telefono : "
-                                + cli.getTelefono();
-                                
-                        }
-                        JOptionPane.showMessageDialog(this,x);
-                }
+                if(b2 <= listado.size() && b2 > 0){
+                    for(Cliente cli : listado){
+                        int n = cli.getId();
+                            if(n == b2){
+                                    x = x +"Id : "+ cli.getId()+ "\n"+ "Nombre :"
+                                    + " " + cli.getNombre() +"\n" + "Apellido: " 
+                                    + cli.getApellido()+"\n" + "Direccion: " 
+                                    + cli.getDireccion() +"\n" + "Telefono : "
+                                    + cli.getTelefono();
+
+                            }
+
+                    }
+                JOptionPane.showMessageDialog(this,x);}
+                else {JOptionPane.showMessageDialog(this, "No existe este ID");}
+            
             }catch(NumberFormatException e){
                 
             
@@ -329,7 +327,6 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnInsertarCliente;
-    private javax.swing.JButton btnVerPersona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

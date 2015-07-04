@@ -7,7 +7,12 @@ package pe.edu.iberotec;
 
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import pe.edu.iberotec.models.Cliente;
+import pe.edu.iberotec.models.PersistenciaCliente;
+import pe.edu.iberotec.models.PersistenciaPersona;
 import pe.edu.iberotec.models.Persona;
+
 /**
  *
  * @author jerson
@@ -16,8 +21,14 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
     /**
      * Creates new form InsertarPersona
      */
+    ArrayList<Cliente> listado =  PersistenciaCliente.LoadData();
     public InsertarPersona() {
         initComponents();
+        listado =  PersistenciaCliente.LoadData();
+        for(Cliente x: listado){
+            String m = (x.getId() + ": " + x.getNombre() + " " + x .getApellido());
+            cbClientes.addItem(m);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,15 +52,18 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
         txtTelefono = new javax.swing.JTextField();
         btnInsertar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablapersona = new javax.swing.JTable();
+        TablaPersona = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         cbClientes = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         txtDNI = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -86,24 +100,50 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
             }
         });
 
-        tablapersona.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPersona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Apellidos", "Direccion", "Telefono"
+                "ID", "Nombre", "Apellidos", "Direccion", "Telefono", "DNI", "Edad"
             }
-        ));
-        jScrollPane1.setViewportView(tablapersona);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TablaPersona);
+        if (TablaPersona.getColumnModel().getColumnCount() > 0) {
+            TablaPersona.getColumnModel().getColumn(0).setPreferredWidth(75);
+            TablaPersona.getColumnModel().getColumn(0).setMaxWidth(150);
+            TablaPersona.getColumnModel().getColumn(6).setPreferredWidth(75);
+            TablaPersona.getColumnModel().getColumn(6).setMaxWidth(175);
+        }
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel5.setText("Seleccionar un cliente para el registro:");
 
-        cbClientes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "null" }));
+        cbClientes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione" }));
+        cbClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbClientesActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("ID:");
 
-        jTextField1.setEditable(false);
+        txtID.setEditable(false);
 
         txtDNI.setEditable(false);
 
@@ -113,6 +153,15 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Edad:");
 
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Eliminar Persona");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,50 +169,51 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jLabel3)
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(txtapellido)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtnombre))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnInsertar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(189, 189, 189)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(27, 27, 27)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                            .addComponent(txtapellido)
-                                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtnombre))))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnInsertar))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(189, 189, 189)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtDNI)
-                                            .addComponent(txtEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addContainerGap())
+                                    .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel7)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(429, 429, 429)
-                                .addComponent(jLabel8)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +225,7 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -198,7 +248,12 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInsertar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -207,13 +262,65 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here
-        Persona per = new Persona();
-        ArrayList<Persona> listado = Persona.LoadData();
+        
         //per.setNombret(txtnom.getText());      
     }//GEN-LAST:event_btnInsertarActionPerformed
+
+    private void cbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbClientesActionPerformed
+        
+        if(!"Seleccione".equals((String) cbClientes.getSelectedItem())){
+            int num = cbClientes.getSelectedIndex();
+            System.out.println("" + num);
+            Cliente cli = listado.get(num - 1);
+            txtID.setText("" + cli.getId());
+            txtnombre.setText(cli.getNombre());
+            txtapellido.setText(cli.getApellido());
+            txtDireccion.setText(cli.getDireccion());
+            txtTelefono.setText("" + cli.getTelefono());
+            txtDNI.setEditable(true);
+            txtEdad.setEditable(true);
+        }else{
+            txtID.setText("");
+            txtnombre.setText("");
+            txtapellido.setText("");
+            txtDireccion.setText("");
+            txtTelefono.setText("");
+            txtDNI.setEditable(false);
+            txtEdad.setEditable(false);
+        }
+    }//GEN-LAST:event_cbClientesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void  LimpiarTabla(){
+        DefaultTableModel df = ((DefaultTableModel) TablaPersona.getModel());
+        int a = df.getRowCount() -1;
+        for (int i = a; i >= 0; i--) {
+            df.removeRow(i);
+        }
+    }
+    
+    public void LlenarTabla(){
+        LimpiarTabla();
+        ArrayList<Persona> lista = PersistenciaPersona.LoadData();
+        DefaultTableModel df = ((DefaultTableModel) TablaPersona.getModel());
+        for (Persona a : lista) {
+           // df.addRow(new Object[]{a.getNombre(), a.getApellido(), a.getDireccion(), a.getTelefono(), a.getId()});
+        }
+    }
+        
+    private void rellenarTabla(){
+        LimpiarTabla();
+        LlenarTabla();
+    }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaPersona;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JComboBox cbClientes;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -227,10 +334,10 @@ public class InsertarPersona extends javax.swing.JInternalFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tablapersona;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtnombre;

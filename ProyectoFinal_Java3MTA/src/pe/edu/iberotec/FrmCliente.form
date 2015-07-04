@@ -36,9 +36,7 @@
                               <Component id="txtBuscar" min="-2" pref="130" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="289" max="32767" attributes="0"/>
-                              <Component id="btnVerPersona" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnEliminarCliente" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -58,7 +56,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="txtTelefono" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="lblErrorTelefono" max="32767" attributes="0"/>
+                                      <Component id="lblErrorTelefono" pref="478" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -130,7 +128,6 @@
                   <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnEliminarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnVerPersona" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -152,7 +149,7 @@
                 <Column editable="false" title="Nombre" type="java.lang.String"/>
                 <Column editable="false" title="Apellido" type="java.lang.String"/>
                 <Column editable="false" title="Direccion" type="java.lang.String"/>
-                <Column editable="false" title="Telefono" type="java.lang.String"/>
+                <Column editable="false" title="Telefono" type="java.lang.Integer"/>
                 <Column editable="false" title="ID" type="java.lang.Integer"/>
               </Table>
             </Property>
@@ -253,18 +250,13 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnBuscar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar"/>
+        <Property name="text" type="java.lang.String" value="Buscar ID"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtBuscar">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnVerPersona">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="VER PERFIL PERSONA"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblErrorTelefono">
       <Properties>
