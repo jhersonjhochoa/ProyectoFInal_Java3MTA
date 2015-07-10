@@ -6,17 +6,20 @@
 package pe.edu.iberotec.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author jerson
  */
-public class Cliente implements Serializable{
+public class Cliente implements Serializable {
+
     private int id;
     private String nombre;
     private String apellido;
     private String direccion;
     private int telefono;
+    private ArrayList<Persona> listaPersonas = new ArrayList();
 
     /**
      * @return the id
@@ -87,4 +90,19 @@ public class Cliente implements Serializable{
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    /**
+     * @return the listaPersonas
+     */
+    public ArrayList<Persona> getListaPersonas() {
+        return listaPersonas;
+    }
+
+    /**
+     * @param listaPersonas the listaPersonas to set
+     */
+    public void setListaPersonas(ArrayList<Persona> listaPersonas) {
+        this.listaPersonas = listaPersonas;
+    }
+
 }

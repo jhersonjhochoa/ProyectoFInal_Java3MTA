@@ -20,19 +20,16 @@ public class FrmCliente extends javax.swing.JInternalFrame {
      * Creates new form IsertarCliente
      */
     ArrayList<Cliente> listado;
-    int cont = 0;
+    int contID = 0;
     Cliente ultimo;
     public FrmCliente() {
         initComponents();
+        actualizarID();
         lblErrorTelefono.setText("");
         try{
             rellenarTabla();
         }catch(Exception e){}
-        listado =  PersistenciaCliente.LoadData();
-        cont = listado.size() - 1;
-        ultimo = listado.get(cont);
-        cont = ultimo.getId() + 1;
-        txtid.setText("" + cont);
+        
     }
 
     /**
@@ -64,6 +61,8 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         lblErrorTelefono = new javax.swing.JLabel();
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         TablaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,11 +89,9 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(TablaCliente);
         if (TablaCliente.getColumnModel().getColumnCount() > 0) {
-            TablaCliente.getColumnModel().getColumn(0).setResizable(false);
-            TablaCliente.getColumnModel().getColumn(1).setResizable(false);
-            TablaCliente.getColumnModel().getColumn(2).setResizable(false);
-            TablaCliente.getColumnModel().getColumn(3).setResizable(false);
-            TablaCliente.getColumnModel().getColumn(4).setResizable(false);
+            TablaCliente.getColumnModel().getColumn(2).setPreferredWidth(160);
+            TablaCliente.getColumnModel().getColumn(3).setPreferredWidth(20);
+            TablaCliente.getColumnModel().getColumn(4).setPreferredWidth(10);
         }
 
         jLabel1.setText("NOMBRE:");
@@ -219,7 +216,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
                     .addComponent(btnInsertarCliente)
                     .addComponent(btnBorrarCampos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
@@ -242,7 +239,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
         try{
             cli.setTelefono(Integer.parseInt(txtTelefono.getText()));
             cli.setId(Integer.parseInt(txtid.getText()));
-            cont++; 
+            contID++; 
             listado.add(cli);
             PersistenciaCliente.SaveData(listado);
             rellenarTabla();
@@ -250,7 +247,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
             txtApellido.setText("");
             txtDireccion.setText("");
             txtTelefono.setText("");
-            txtid.setText("" + cont);
+            txtid.setText("" + contID);
             
         }catch(NumberFormatException e){
             lblErrorTelefono.setText("Formato de número inválido");
@@ -260,22 +257,20 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
         listado =  PersistenciaCliente.LoadData();
-        DefaultTableModel df =  ((DefaultTableModel)TablaCliente.getModel()) ;
         int[] eliminarDatos = TablaCliente.getSelectedRows();
-        
-        //Cliente yy = listado.get(0);
-        //System.out.println("" + yy.getId());
-        
-        if (eliminarDatos.length > 0) {
-            int u = eliminarDatos[0];
-            for(int l = eliminarDatos.length; l >0; l--){
-                listado.remove(u);
+        int indice = eliminarDatos.length - 1;
+        if (indice >= 0) {
+            for(int x = indice; indice >= 0; indice--){
+                int elim = eliminarDatos[indice];
+                System.out.println("" + elim);
+                listado.remove(elim);                
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Selecciona un dato del cuadro" , "Mensaje", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Selecciona uno o mas datos de la tabla" , "Mensaje", JOptionPane.WARNING_MESSAGE);
         }
         PersistenciaCliente.SaveData(listado);
         rellenarTabla();
+        actualizarID();
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
     private void btnBorrarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarCamposActionPerformed
@@ -288,7 +283,7 @@ public class FrmCliente extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        ArrayList<Cliente> listado = PersistenciaCliente.LoadData();
+        listado = PersistenciaCliente.LoadData();
         String b = txtBuscar.getText();
             try{
                 int b2 = Integer.parseInt(b);
@@ -335,6 +330,19 @@ public class FrmCliente extends javax.swing.JInternalFrame {
     private void rellenarTabla(){
         LimpiarTabla();
         LlenarTabla();
+    }
+    
+    private void actualizarID(){
+        listado =  PersistenciaCliente.LoadData();
+        if(listado.size() > 0){
+            contID = listado.size() - 1;
+            //System.out.println("" + contID);
+            ultimo = listado.get(contID);
+            contID = ultimo.getId() + 1;
+        }
+        else{contID = 1;}
+        
+        txtid.setText("" + contID);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
