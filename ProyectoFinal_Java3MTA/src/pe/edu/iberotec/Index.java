@@ -29,6 +29,8 @@ public class Index extends javax.swing.JFrame {
         actualizarIDCliente();
         lblErrorTelefono.setText("");
         lblMensajeTelefonoPersona.setText("");
+        btnInsertarPersona.setEnabled(false);
+        btnEliminarPersona.setEnabled(false);
         try{
             rellenarTablaCliente();
             llenarCbCliente(cbClientesPersonas);
@@ -90,8 +92,9 @@ public class Index extends javax.swing.JFrame {
         lblMensajePersona = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaPersona = new javax.swing.JTable();
-        btnInsertar = new javax.swing.JButton();
+        btnInsertarPersona = new javax.swing.JButton();
         lblMensajeTelefonoPersona = new javax.swing.JLabel();
+        btnEliminarPersona = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -344,16 +347,23 @@ public class Index extends javax.swing.JFrame {
             TablaPersona.getColumnModel().getColumn(4).setPreferredWidth(35);
         }
 
-        btnInsertar.setText("Insertar Persona");
-        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertarPersona.setText("Insertar Persona");
+        btnInsertarPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertarActionPerformed(evt);
+                btnInsertarPersonaActionPerformed(evt);
             }
         });
 
         lblMensajeTelefonoPersona.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblMensajeTelefonoPersona.setForeground(new java.awt.Color(204, 0, 0));
         lblMensajeTelefonoPersona.setText("Formato inválido");
+
+        btnEliminarPersona.setText("Eliminar Persona");
+        btnEliminarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPersonaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -408,11 +418,14 @@ public class Index extends javax.swing.JFrame {
                                     .addComponent(jLabel13)
                                     .addComponent(jLabel15))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(19, 19, 19)))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnEliminarPersona)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(337, 337, 337)
-                .addComponent(btnInsertar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(321, 321, 321)
+                .addComponent(btnInsertarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -468,10 +481,12 @@ public class Index extends javax.swing.JFrame {
                             .addComponent(txtTelefonoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMensajeTelefonoPersona))))
                 .addGap(3, 3, 3)
-                .addComponent(btnInsertar)
+                .addComponent(btnInsertarPersona)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEliminarPersona)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Personas", jPanel2);
@@ -487,7 +502,7 @@ public class Index extends javax.swing.JFrame {
             .addGap(0, 572, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("Animales", jPanel3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -652,8 +667,8 @@ public class Index extends javax.swing.JFrame {
                 txtApellidoPersona.setEditable(true);
                 txtTelefonoPersona.setEditable(true);
                 txtDireccionPersona.setEditable(true);
-                btnInsertar.setEnabled(true);
-                
+                btnInsertarPersona.setEnabled(true);
+                btnEliminarPersona.setEnabled(true);
             }catch(java.lang.ArrayIndexOutOfBoundsException ny){
                 //error producido constantemente al insertar clientes pero ignorado ya que no causa daño.
             }
@@ -668,13 +683,14 @@ public class Index extends javax.swing.JFrame {
             txtApellidoPersona.setEditable(false);
             txtTelefonoPersona.setEditable(false);
             txtDireccionPersona.setEditable(false);
-            btnInsertar.setEnabled(false);
+            btnInsertarPersona.setEnabled(false);
+            btnEliminarPersona.setEnabled(false);
             LimpiarTablaPersona();
         }
 
     }//GEN-LAST:event_cbClientesPersonasActionPerformed
 
-    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+    private void btnInsertarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarPersonaActionPerformed
         int indiceClienteActual = cbClientesPersonas.getSelectedIndex() - 1;
         lblMensajeTelefonoPersona.setText("");
         listaPeronasClienteActual = clienteActualTablaPersonas.getListaPersonas();
@@ -689,8 +705,33 @@ public class Index extends javax.swing.JFrame {
             listado.set(indiceClienteActual, clienteActualTablaPersonas);
             actualizarTablaPersona(clienteActualTablaPersonas);
             PersistenciaCliente.SaveData(listado);
+            txtNombrePersona.setText("");
+            txtApellidoPersona.setText("");
+            txtTelefonoPersona.setText("");
+            txtDireccionPersona.setText("");
         }catch(NumberFormatException EV){lblMensajeTelefonoPersona.setText("Formato Inválido");}
-    }//GEN-LAST:event_btnInsertarActionPerformed
+    }//GEN-LAST:event_btnInsertarPersonaActionPerformed
+
+    private void btnEliminarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPersonaActionPerformed
+        int indiceClienteActual = cbClientesPersonas.getSelectedIndex() - 1;
+        lblMensajeTelefonoPersona.setText("");
+        listaPeronasClienteActual = clienteActualTablaPersonas.getListaPersonas();
+        int[] eliminarDatos = TablaPersona.getSelectedRows();
+        int indice = eliminarDatos.length - 1;
+        if (indice >= 0) {
+            for(int x = indice; indice >= 0; indice--){
+                int elim = eliminarDatos[indice];
+                System.out.println("" + elim);
+                listaPeronasClienteActual.remove(elim);                
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona uno o mas datos de la tabla" , "Mensaje", JOptionPane.WARNING_MESSAGE);
+        }
+        clienteActualTablaPersonas.setListaPersonas(listaPeronasClienteActual);
+        listado.set(indiceClienteActual, clienteActualTablaPersonas);
+        actualizarTablaPersona(clienteActualTablaPersonas);
+        PersistenciaCliente.SaveData(listado);
+    }//GEN-LAST:event_btnEliminarPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -812,8 +853,9 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrarCamposClientes;
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnEliminarCliente;
-    private javax.swing.JButton btnInsertar;
+    private javax.swing.JButton btnEliminarPersona;
     private javax.swing.JButton btnInsertarCliente;
+    private javax.swing.JButton btnInsertarPersona;
     private javax.swing.JComboBox cbClientesPersonas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -13,91 +13,14 @@ import java.io.Serializable;
  */
 public class Mascota implements Serializable
 {
-    private String nombreCli;
-    private String Dni;
-    private String nombreMas;
-    private String color;
+    private String nombreCliente;
+    private int idCliente;
+    private String animal;
+    private String nombreMascota;
     private String raza;
     private String edad;
-    private double pezo;
-    private String sexo;
-    private int id;
+    private double peso;
+    private String sexo; 
     
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
     
-
-    public String getNombreCli() {
-        return nombreCli;
-    }
-
-    public void setNombreCli(String nombreCli) {
-        this.nombreCli = nombreCli;
-    }
-
-    public String getDni() {
-        return Dni;
-    }
-
-    public void setDni(String Dni) {
-        this.Dni = Dni;
-    }
-
-    public String getNombreMas() {
-        return nombreMas;
-    }
-
-    public void setNombreMas(String nombreMas) {
-        this.nombreMas = nombreMas;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
-
-    public double getPezo() {
-        return pezo;
-    }
-
-    public void setPezo(double pezo) {
-        this.pezo = pezo;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
 }
-   
-    
-    
-    
-
